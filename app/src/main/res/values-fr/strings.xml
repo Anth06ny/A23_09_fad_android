@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="like">J\'aime</string>
+    <string name="dislike">Je n\'aime pas</string>
+    <string name="complement">"Complément : "</string>
+</resources>
