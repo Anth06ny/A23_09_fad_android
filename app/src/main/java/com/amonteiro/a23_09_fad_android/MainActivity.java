@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
     private static final int MENU_WEATHER = 2;
+    private static final int MENU_RV = 3;
 
     private ActivityMainBinding binding = null;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0,MENU_WEATHER,0,"Météo");
+        menu.add(0,MENU_RV,0,"RecyclerView");
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -59,6 +61,11 @@ public class MainActivity extends AppCompatActivity  {
             Intent intent = new Intent(this, WeatherActivity.class);
             startActivity(intent);
         }
+        if(item.getItemId() == MENU_RV) {
+            Intent intent = new Intent(this, WeatherAroundActivity.class);
+            startActivity(intent);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

@@ -4,6 +4,13 @@ public class WindBean {
 
     private double speed;
 
+    public WindBean(double speed) {
+        this.speed = speed;
+    }
+
+    public WindBean() {
+    }
+
     @Override
     public String toString() {
         return "WindBean{" +
