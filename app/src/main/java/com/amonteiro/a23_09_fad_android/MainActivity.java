@@ -13,9 +13,12 @@ import com.amonteiro.a23_09_fad_android.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity  {
 
+
+
     private static final int MENU_WEATHER = 2;
 
     private ActivityMainBinding binding = null;
+
 
     //Callback : La création de l'écran
     @Override

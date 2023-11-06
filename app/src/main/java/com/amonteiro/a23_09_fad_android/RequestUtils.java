@@ -21,6 +21,16 @@ public class RequestUtils {
         return gson.fromJson(json, WeatherBean.class);
     }
 
+    public static WeatherBean loadWeather(double latitude, double longitude) throws Exception {
+
+        //requête
+        String json = sendGet(URL_API + "/weather?appid=b80967f0a6bd10d23e44848547b26550&units=metric&lang=fr&lat=" + latitude + "&lon=" + longitude);
+
+        //parser le résultat
+        Gson gson = new Gson();
+        return gson.fromJson(json, WeatherBean.class);
+    }
+
 
     public static String sendGet(String url) throws Exception {
         System.out.println("url : " + url);
