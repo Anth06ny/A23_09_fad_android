@@ -1,25 +1,22 @@
 package com.amonteiro.a23_09_fad_android;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.amonteiro.a23_09_fad_android.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity  {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-
+public class MainActivity extends AppCompatActivity {
 
     private static final int MENU_WEATHER = 2;
     private static final int MENU_RV = 3;
+    private static final int MENU_ISS = 4;
 
     private ActivityMainBinding binding = null;
-
 
     //Callback : La création de l'écran
     @Override
@@ -32,10 +29,10 @@ public class MainActivity extends AppCompatActivity  {
 
         //Callback : Du clic sur le bouton valider
         binding.btValidate.setOnClickListener(v -> {
-            if(binding.rbLike.isChecked()) {
+            if (binding.rbLike.isChecked()) {
                 binding.et.setText(binding.rbLike.getText());
             }
-            else if(binding.rbDislike.isChecked()) {
+            else if (binding.rbDislike.isChecked()) {
                 binding.et.setText(binding.rbDislike.getText());
             }
             binding.iv.setImageResource(R.drawable.baseline_delete_forever_24);
@@ -50,22 +47,26 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0,MENU_WEATHER,0,"Météo");
-        menu.add(0,MENU_RV,0,"RecyclerView");
+        menu.add(0, MENU_WEATHER, 0, "Météo");
+        menu.add(0, MENU_RV, 0, "RecyclerView");
+        menu.add(0, MENU_ISS, 0, "ISS");
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == MENU_WEATHER) {
+        if (item.getItemId() == MENU_WEATHER) {
             Intent intent = new Intent(this, WeatherActivity.class);
             startActivity(intent);
         }
-        if(item.getItemId() == MENU_RV) {
+        if (item.getItemId() == MENU_RV) {
             Intent intent = new Intent(this, WeatherAroundActivity.class);
             startActivity(intent);
         }
-
+        if (item.getItemId() == MENU_ISS) {
+            Intent intent = new Intent(this, ISSMapsActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
