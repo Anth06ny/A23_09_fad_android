@@ -11,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.A23_09_fad_android"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".exemplefragment.ExempleFragmentActivity"
+            android:exported="false"
+            android:label="@string/title_activity_exemple_fragment"
+            android:theme="@style/Theme.A23_09_fad_android" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -28,7 +33,6 @@
             android:name=".ISSMapsActivity"
             android:exported="false"
             android:label="@string/title_activity_issmaps" />
-
         <activity
             android:name=".WeatherAroundActivity"
             android:exported="false" />
@@ -44,13 +48,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyApVHL_m9GVclDcuoZUDtNBTJCtdjITZVk" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

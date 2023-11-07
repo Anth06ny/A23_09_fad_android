@@ -1,6 +1,8 @@
 package com.amonteiro.a23_09_fad_android;
 
+import com.amonteiro.a23_09_fad_android.beans.ISSPositionResponse;
 import com.amonteiro.a23_09_fad_android.beans.WeatherBean;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import okhttp3.*;
 
@@ -10,6 +12,29 @@ import java.io.IOException;
 public class RequestUtils {
 
     private static final String URL_API = "https://api.openweathermap.org/data/2.5";
+    private static final String ISS_POSITION_URL = "http://api.open-notify.org/iss-now.json";
+
+
+    public static LatLng getISSCurrentLocation() throws IOException {
+        System.out.println(ISS_POSITION_URL);
+
+        OkHttpClient client = new OkHttpClient();
+        Gson gson = new Gson();
+
+        Request request = new Request.Builder()
+                .url(ISS_POSITION_URL)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+
+            // Convertir la réponse JSON en objet ISSPositionResponse
+            ISSPositionResponse issResponse = gson.fromJson(response.body().string(), ISSPositionResponse.class);
+
+            // Extraire les données de position et les convertir en LatLng
+            return new LatLng(issResponse.getIss_position().getLatitude(), issResponse.getIss_position().getLongitude());
+        }
+    }
 
     public static WeatherBean loadWeather(String cityName) throws Exception {
 

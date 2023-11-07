@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.amonteiro.a23_09_fad_android.databinding.ActivityMainBinding;
+import com.amonteiro.a23_09_fad_android.exemplefragment.ExempleFragmentActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int MENU_WEATHER = 2;
     private static final int MENU_RV = 3;
     private static final int MENU_ISS = 4;
+    private static final int MENU_FRAGMENT = 5;
 
     private ActivityMainBinding binding = null;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         menu.add(0, MENU_WEATHER, 0, "Météo");
         menu.add(0, MENU_RV, 0, "RecyclerView");
         menu.add(0, MENU_ISS, 0, "ISS");
+        menu.add(0, MENU_FRAGMENT, 0, "Fragment");
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -65,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         }
         if (item.getItemId() == MENU_ISS) {
             Intent intent = new Intent(this, ISSMapsActivity.class);
+            startActivity(intent);
+        }
+ if (item.getItemId() == MENU_FRAGMENT) {
+            Intent intent = new Intent(this, ExempleFragmentActivity.class);
             startActivity(intent);
         }
 
